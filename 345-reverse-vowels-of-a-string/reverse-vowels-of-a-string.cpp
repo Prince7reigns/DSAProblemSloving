@@ -4,6 +4,11 @@
 
 class Solution {
  public:
+   void swap(char &x,char &y){
+    char temp = x;
+    x=y;
+    y=temp;
+   }
    bool isVowels(char c){
     switch(c){
         case 'a': case 'e':case 'i': case 'o':case 'u':
@@ -18,18 +23,16 @@ class Solution {
       int i=0;
 
       while(i < j){
-         while(i<s.length() && !isVowels(s[i])){
-            i++;
+         while(i<j && !isVowels(s[i])){
+            ++i;
          }
-         while(j>=0 && !isVowels(s[j])){
-            j--;
+         while(i<j && !isVowels(s[j])){
+            --j;
          }
          if(i<j){
-            char temp=s[i];
-            s[i]=s[j];
-            s[j]=temp;
-            i++;
-            j--;
+            swap(s[i],s[j]);
+            ++i;
+            --j;
          }
       }
        return s;
