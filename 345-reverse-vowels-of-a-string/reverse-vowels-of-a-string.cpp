@@ -10,17 +10,14 @@ class Solution {
       int i=0;
 
       while(i < j){
-        if(v.find(s[i]) != string::npos && v.find(s[j]) != string::npos){
-           char temp = s[i];
-           s[i]=s[j];
-           s[j]=temp;
-           i++;
-           j--;
-        }else if(v.find(s[i]) != string::npos){
-            j--;
-        }else if(v.find(s[j]) != string::npos){
+         if(v.find(s[i]) == string::npos){
             i++;
+        }else if(v.find(s[j]) == string::npos){
+            j--;
         }else{
+            char temp = s[i];
+            s[i]=s[j];
+            s[j]=temp;
             i++;
             j--;
         }
