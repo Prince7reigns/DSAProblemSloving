@@ -6,23 +6,24 @@ public:
         int sum=0;
         int minDiff=INT_MAX;
 
-        while(k<nums.size()){
+        while(k<nums.size()-2){
             int i=k+1;
            int j=nums.size()-1;
            while(i<j){
             int currSum=nums[i]+nums[j]+nums[k];
             int currMinDiff=abs(currSum-target);
-
-            minDiff=min(currMinDiff,minDiff);
             
-            if(minDiff==currMinDiff){
-                sum=currSum;
+            if (currMinDiff < minDiff) {
+                    minDiff = currMinDiff;
+                    sum = currSum;
             }
 
             if(currSum < target){
                 i++;
-            }else{
+            }else if(currSum > target){
                 j--;
+            }else{
+                return currSum; 
             }
            }  
            k++;  
