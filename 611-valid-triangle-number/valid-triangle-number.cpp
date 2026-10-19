@@ -5,7 +5,7 @@ public:
         int count =0;
         int n=nums.size()-1;
 
-        for(int k=n;k>0;k--){
+        for(int k=n;k>=2;k--){
             int i=0;
             int j=k-1;
 
