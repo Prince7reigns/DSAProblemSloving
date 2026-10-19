@@ -6,7 +6,10 @@ public:
         int j=people.size()-1;
         int boat=0;
 
-        while(i<=j){
+        if(people[i] > limit){
+            return people.size();
+        }else{
+            while(i<=j){
             int weight = people[i]+people[j];
 
             if(weight <= limit){
@@ -16,6 +19,7 @@ public:
                 j--;
             }
             boat++;
+        }
         }
         return boat;
     }
