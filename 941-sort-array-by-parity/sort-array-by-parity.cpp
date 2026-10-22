@@ -6,21 +6,16 @@ public:
         y=temp;
     }
     vector<int> sortArrayByParity(vector<int>& nums) {
-        int i=0;
-        int j=nums.size()-1;
+        int left=0;
+        int right=nums.size()-1;
 
-        while(i<j){
-            while(i<j && nums[i]%2==0){
-                i++;
+        while(left<right){
+            if (nums[left] % 2 > nums[right] % 2) {
+                swap(nums[left], nums[right]);
             }
 
-            while(i<j && nums[j]%2!=0){
-                j--;
-            }
-
-            swap(nums[i],nums[j]);
-            i++;
-            j--;
+            if (nums[left] % 2 == 0) left++;
+            if (nums[right] % 2 == 1) right--;
         }
 
         return nums;
