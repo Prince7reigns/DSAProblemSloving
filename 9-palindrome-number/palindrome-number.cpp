@@ -2,21 +2,16 @@ class Solution {
 public:
     bool isPalindrome(int x) {
 
-        if(llabs(x)!=x){
-            return false;
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+        return false;
         }
 
-        long long tempX=x;
-        long long final=0;
-        
-        while(tempX > 0){
-            long long rem=0;
-            rem=tempX % 10;
-
-            final = final*10 + rem;
-
-            tempX=tempX/10;
-        }
-            return final==x;
+         long long  reversedHalf = 0;
+    
+         while (x > reversedHalf) {
+             reversedHalf = reversedHalf * 10 + x % 10;
+             x /= 10;
+         }
+           return x == reversedHalf || x == reversedHalf / 10;
     }
 };
