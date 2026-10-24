@@ -5,8 +5,10 @@ public:
         if(llabs(x)!=x){
             return false;
         }
+
         long long tempX=x;
         long long final=0;
+        
         while(tempX > 0){
             long long rem=0;
             rem=tempX % 10;
